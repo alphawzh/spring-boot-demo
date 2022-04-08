@@ -1,8 +1,7 @@
 package com.alpha.wzh;
 
-import com.alpha.wzh.config.MyConfig;
-import com.alpha.wzh.pojo.Pet;
-import com.alpha.wzh.pojo.User;
+import com.alpha.UserInfo;
+import com.alpha.wzh.pojo.Car;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -38,6 +37,9 @@ public class BootApplication {
         Pet tom = run.getBean("pet", Pet.class);
         System.out.println("用户的宠物："+(user01.getPet() == tom));*/
 
+        UserInfo bean = run.getBean(UserInfo.class);
+
+
         //2、查看容器里面的组件
         String[] names = run.getBeanDefinitionNames();
         for (String name : names) {
@@ -52,6 +54,15 @@ public class BootApplication {
 
         boolean tom22 = run.containsBean("pet");
         System.out.println("容器中pet组件："+tom22);
+
+        boolean haha = run.containsBean("haha");
+        boolean hehe = run.containsBean("hehe");
+        System.out.println("haha："+haha);//true
+        System.out.println("hehe："+hehe);//true
+
+        Car car = run.getBean("car", Car.class);
+        System.out.println(car);
+
 
     }
 }

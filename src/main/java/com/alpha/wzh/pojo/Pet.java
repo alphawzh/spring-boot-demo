@@ -12,6 +12,9 @@ public class Pet implements Serializable {
 
     private String name;
 
+    public Pet() {
+    }
+
     public Pet(String name) {
         this.name = name;
     }

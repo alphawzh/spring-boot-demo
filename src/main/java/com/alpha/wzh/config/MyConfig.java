@@ -1,11 +1,14 @@
 package com.alpha.wzh.config;
 
+import com.alpha.UserInfo;
 import com.alpha.wzh.pojo.Pet;
 import com.alpha.wzh.pojo.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * 1、配置类里面使用@Bean标注在方法上给容器注册组件，默认也是单实例的
@@ -23,6 +26,8 @@ import org.springframework.context.annotation.Configuration;
  * @since JDK 1.8
  */
 @Configuration(proxyBeanMethods = true)
+@Import(UserInfo.class)
+@ImportResource("classpath:beans.xml")
 @ConditionalOnMissingBean(name = "tom")
 public class MyConfig {
 
